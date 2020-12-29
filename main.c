@@ -20,7 +20,7 @@ const unsigned int LE     = 2;
 volatile int cnt = 0;
 
 ISR (TCC2_LCMPA_vect) {
-	if (++cnt == 1000) 
+	if (++cnt == 500) 
 	{
 		LED1_toggle_level();
 		cnt = 0;
@@ -32,13 +32,12 @@ int main(void)
 	/* Initializes MCU, drivers and middleware */
 	atmel_start_init();
 
+	LED1_set_level(true);
+	LED0_set_level(true);
 	sei();
 	/* Replace with your application code */
 	while (1) {
 		LED0_toggle_level();
-		// LED0_set_level(true);
-		// _delay_ms(250);
-		// LED0_set_level(false);
 		_delay_ms(250);
 	}
 }

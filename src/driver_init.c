@@ -36,6 +36,12 @@
 #include "driver_init.h"
 #include <system.h>
 
+void TIMER_0_initialization(void)
+{
+
+	TIMER_0_init();
+}
+
 /* configure pins and initialize registers */
 void SLEEP_initialization(void)
 {
@@ -48,6 +54,78 @@ void SLEEP_initialization(void)
 void system_init()
 {
 	mcu_init();
+
+	/* PORT setting on PC0 */
+
+	// Set pin direction to output
+	RCLK_set_dir(PORT_DIR_OUT);
+
+	RCLK_set_level(
+	    // <y> Initial level
+	    // <id> pad_initial_level
+	    // <false"> Low
+	    // <true"> High
+	    false);
+
+	/* PORT setting on PC1 */
+
+	// Set pin direction to output
+	RSDI_set_dir(PORT_DIR_OUT);
+
+	RSDI_set_level(
+	    // <y> Initial level
+	    // <id> pad_initial_level
+	    // <false"> Low
+	    // <true"> High
+	    false);
+
+	/* PORT setting on PC2 */
+
+	// Set pin direction to output
+	OE_set_dir(PORT_DIR_OUT);
+
+	OE_set_level(
+	    // <y> Initial level
+	    // <id> pad_initial_level
+	    // <false"> Low
+	    // <true"> High
+	    false);
+
+	/* PORT setting on PC3 */
+
+	// Set pin direction to output
+	CSDI_set_dir(PORT_DIR_OUT);
+
+	CSDI_set_level(
+	    // <y> Initial level
+	    // <id> pad_initial_level
+	    // <false"> Low
+	    // <true"> High
+	    false);
+
+	/* PORT setting on PC4 */
+
+	// Set pin direction to output
+	CCLK_set_dir(PORT_DIR_OUT);
+
+	CCLK_set_level(
+	    // <y> Initial level
+	    // <id> pad_initial_level
+	    // <false"> Low
+	    // <true"> High
+	    false);
+
+	/* PORT setting on PC5 */
+
+	// Set pin direction to output
+	LE_set_dir(PORT_DIR_OUT);
+
+	LE_set_level(
+	    // <y> Initial level
+	    // <id> pad_initial_level
+	    // <false"> Low
+	    // <true"> High
+	    false);
 
 	/* PORT setting on PR0 */
 
@@ -72,6 +150,8 @@ void system_init()
 	    // <false"> Low
 	    // <true"> High
 	    false);
+
+	TIMER_0_initialization();
 
 	OSC_init();
 

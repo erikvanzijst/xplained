@@ -3,6 +3,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
+MK_DIR = mkdir -p
 ifdef SystemRoot
 	SHELL = cmd.exe
 	MK_DIR = mkdir
@@ -28,8 +29,6 @@ else
 	endif
 endif
 
-MK_DIR = mkdir -p
-
 # List the subdirectories for creating object files
 SUB_DIRS +=  \
  \
@@ -41,6 +40,7 @@ main.o \
 src/pmic.o \
 src/sleep.o \
 src/osc.o \
+src/tc.o \
 driver_isr.o \
 atmel_start.o \
 src/clk.o \
@@ -52,6 +52,7 @@ OBJS_AS_ARGS +=  \
 "src/pmic.o" \
 "src/sleep.o" \
 "src/osc.o" \
+"src/tc.o" \
 "driver_isr.o" \
 "atmel_start.o" \
 "src/clk.o" \
@@ -62,6 +63,7 @@ OBJS_AS_ARGS +=  \
 DEPS := $(OBJS:%.o=%.d)
 
 DEPS_AS_ARGS +=  \
+"src/tc.d" \
 "src/osc.d" \
 "main.d" \
 "src/pmic.d" \

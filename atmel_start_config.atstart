@@ -20,6 +20,49 @@ details: null
 application: null
 middlewares: {}
 drivers:
+  TIMER_0:
+    user_label: TIMER_0
+    definition: Atmel:XMEGA_A_B_C_Drivers:1.0.0::ATxmega256A3BU-AU::TCC0::driver_config_definition::TC0.Normal.Mode::Drivers:TC:Init
+    functionality: Timer
+    api: Drivers:TC:Init
+    configuration:
+      tc0_ccA: 124
+      tc0_ccB: 0
+      tc0_ccC: 0
+      tc0_ccD: 0
+      tc0_ctrlb_ccAen: true
+      tc0_ctrlb_ccBen: false
+      tc0_ctrlb_ccCen: false
+      tc0_ctrlb_ccDen: false
+      tc0_ctrlc_cmpA: false
+      tc0_ctrlc_cmpB: false
+      tc0_ctrlc_cmpC: false
+      tc0_ctrlc_cmpD: false
+      tc0_ctrld_evdly: false
+      tc0_intctrlb_ccAintlvl: Interrupt Disabled
+      tc0_intctrlb_ccBintlvl: Interrupt Disabled
+      tc0_intctrlb_ccCintlvl: Interrupt Disabled
+      tc0_intctrlb_ccDintlvl: Interrupt Disabled
+      tc_cnt: 0
+      tc_ctrla_clksel: System Clock / 64
+      tc_ctrlb_wgmode: Normal Mode
+      tc_ctrld_evact: No Event Action
+      tc_ctrld_evsel: No Event Source
+      tc_ctrle_bytem: false
+      tc_intctrla_errintlvl: Interrupt Disabled
+      tc_intctrla_ovfintlvl: Interrupt Disabled
+      tc_per: 65535
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: TC
+          input: CLK CPU/PER
+          external: false
+          external_frequency: 0
+        configuration:
+          tc_clock_source: CLK CPU/PER
   OSC:
     user_label: OSC
     definition: Atmel:XMEGA_A_B_C_Drivers:1.0.0::ATxmega256A3BU-AU::OSC::driver_config_definition::OSC::Drivers:OSC:Init
@@ -182,6 +225,42 @@ drivers:
     clocks:
       domain_group: null
 pads:
+  RCLK:
+    name: PC0
+    definition: Atmel:XMEGA_A_B_C_Drivers:1.0.0::ATxmega256A3BU-AU::pad::PC0
+    mode: Digital output
+    user_label: RCLK
+    configuration: null
+  RSDI:
+    name: PC1
+    definition: Atmel:XMEGA_A_B_C_Drivers:1.0.0::ATxmega256A3BU-AU::pad::PC1
+    mode: Digital output
+    user_label: RSDI
+    configuration: null
+  OE:
+    name: PC2
+    definition: Atmel:XMEGA_A_B_C_Drivers:1.0.0::ATxmega256A3BU-AU::pad::PC2
+    mode: Digital output
+    user_label: OE
+    configuration: null
+  CSDI:
+    name: PC3
+    definition: Atmel:XMEGA_A_B_C_Drivers:1.0.0::ATxmega256A3BU-AU::pad::PC3
+    mode: Digital output
+    user_label: CSDI
+    configuration: null
+  CCLK:
+    name: PC4
+    definition: Atmel:XMEGA_A_B_C_Drivers:1.0.0::ATxmega256A3BU-AU::pad::PC4
+    mode: Digital output
+    user_label: CCLK
+    configuration: null
+  LE:
+    name: PC5
+    definition: Atmel:XMEGA_A_B_C_Drivers:1.0.0::ATxmega256A3BU-AU::pad::PC5
+    mode: Digital output
+    user_label: LE
+    configuration: null
   LED0:
     name: PR0
     definition: Atmel:XMEGA_A_B_C_Drivers:1.0.0::ATxmega256A3BU-AU::pad::PR0
