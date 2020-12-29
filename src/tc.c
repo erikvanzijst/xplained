@@ -57,10 +57,10 @@ int8_t TIMER_0_init()
 
 	// TCC0.CTRLE = 0; /* Byte Mode: 0 */
 
-	// TCC0.INTCTRLB = TC_CCDINTLVL_OFF_gc /* Interrupt Disabled */
-	//		 | TC_CCCINTLVL_OFF_gc /* Interrupt Disabled */
-	//		 | TC_CCBINTLVL_OFF_gc /* Interrupt Disabled */
-	//		 | TC_CCAINTLVL_OFF_gc /* Interrupt Disabled */;
+	TCC0.INTCTRLB = TC_CCDINTLVL_OFF_gc   /* Interrupt Disabled */
+	                | TC_CCCINTLVL_OFF_gc /* Interrupt Disabled */
+	                | TC_CCBINTLVL_OFF_gc /* Interrupt Disabled */
+	                | TC_CCAINTLVL_MED_gc /* Medium Level */;
 
 	// TCC0.INTCTRLA = TC_ERRINTLVL_OFF_gc /* Interrupt Disabled */
 	//		 | TC_OVFINTLVL_OFF_gc; /* Interrupt Disabled */

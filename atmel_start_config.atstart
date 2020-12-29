@@ -39,7 +39,7 @@ drivers:
       tc0_ctrlc_cmpC: false
       tc0_ctrlc_cmpD: false
       tc0_ctrld_evdly: false
-      tc0_intctrlb_ccAintlvl: Interrupt Disabled
+      tc0_intctrlb_ccAintlvl: Medium Level
       tc0_intctrlb_ccBintlvl: Interrupt Disabled
       tc0_intctrlb_ccCintlvl: Interrupt Disabled
       tc0_intctrlb_ccDintlvl: Interrupt Disabled

@@ -17,16 +17,6 @@ const unsigned int CSDI   = 4;
 const unsigned int CCLK   = 3;
 const unsigned int LE     = 2;
 
-volatile int cnt = 0;
-
-ISR (TCC2_LCMPA_vect) {
-	if (++cnt == 500) 
-	{
-		LED1_toggle_level();
-		cnt = 0;
-	}
-}
-
 int main(void)
 {
 	/* Initializes MCU, drivers and middleware */
