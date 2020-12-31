@@ -36,16 +36,13 @@
 #include <driver_init.h>
 #include <compiler.h>
 
-volatile int cnt = 0;
+ISR(TCC0_OVF_vect)
+{
+   LED1_toggle_level();
+}
 
 ISR(TCC0_CCA_vect)
 {
 	/* Insert your CCA Compare Interrupt handling code here */
    LED0_toggle_level();
-   LED1_toggle_level();
-	if (++cnt == 500)
-	{
-		// LED1_toggle_level();
-		cnt = 0;
-	}
 }

@@ -58,9 +58,9 @@ int8_t OSC_init()
 
 	// OSC.RC32KCAL = 0; /* Oscillator Calibration Value: 0 */
 
-	// OSC.PLLCTRL = OSC_PLLSRC_RC2M_gc /* 2MHz Internal Oscillator */
-	//		 | 1 << OSC_PLLDIV_bp /* PLL divided output: enabled */
-	//		 | 1 << OSC_PLLFAC_gp; /* PLL Multiplication Factor: 1 */
+	OSC.PLLCTRL = OSC_PLLSRC_RC2M_gc    /* 2MHz Internal Oscillator */
+	              | 0 << OSC_PLLDIV_bp  /* PLL divided output: disabled */
+	              | 1 << OSC_PLLFAC_gp; /* PLL Multiplication Factor: 1 */
 
 	// OSC.CTRL = 0 << OSC_PLLEN_bp /* PLL Enable: disabled */
 	//		 | 0 << OSC_XOSCEN_bp /* External Oscillator Enable: disabled */

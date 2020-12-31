@@ -74,7 +74,7 @@ drivers:
       RESERVED_InputFreq: 2000000
       RESERVED_InputFreq_id: 2MHz Internal Oscillator
       _$freq_output_External Crystal Oscillator 0.4-16MHz: '400000'
-      _$freq_output_PLL: 1000000
+      _$freq_output_PLL: 2000000
       dfll2m_calib_a: 0
       dfll2m_calib_b: 0
       dfll2m_calib_ref: false
@@ -101,7 +101,7 @@ drivers:
       osc_xoscfail_pllfdif: false
       osc_xoscfail_xoscfden: false
       osc_xoscfail_xoscfdif: false
-      pll_div: true
+      pll_div: false
       pll_fac: 1
       pll_src: 2MHz Internal Oscillator
       xosc32k_klpm: false
@@ -119,14 +119,14 @@ drivers:
     functionality: System
     api: Drivers:CLK:Init
     configuration:
-      $input: 1000000
+      $input: 2000000
       $input_id: PLL
-      RESERVED_InputFreq: 1000000
+      RESERVED_InputFreq: 2000000
       RESERVED_InputFreq_id: PLL
       _$freq_output_CLK CPU/PER: 2000000
       _$freq_output_CLK PER2: 2000000
       _$freq_output_CLK PER4: 2000000
-      _$freq_output_CLK USB: 1000000
+      _$freq_output_CLK USB: 2000000
       _$freq_output_CPU: 2000000
       _$freq_output_NVM: 2000000
       _$freq_output_RAM: 2000000
@@ -146,7 +146,9 @@ drivers:
       enable_cpu_source: true
       enable_lp_source: false
       enable_per2_source: true
+      enable_per2_source_enable: true
       enable_per4_source: true
+      enable_per4_source_enable: true
       enable_rtc_source: false
       lp_source_oscillator: Ultra Low Power Internal Oscillator
       nvm_clock_source: CLK CPU/PER

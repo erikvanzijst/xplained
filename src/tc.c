@@ -62,8 +62,8 @@ int8_t TIMER_0_init()
 	                | TC_CCBINTLVL_OFF_gc /* Interrupt Disabled */
 	                | TC_CCAINTLVL_MED_gc /* Medium Level */;
 
-	// TCC0.INTCTRLA = TC_ERRINTLVL_OFF_gc /* Interrupt Disabled */
-	//		 | TC_OVFINTLVL_OFF_gc; /* Interrupt Disabled */
+	TCC0.INTCTRLA = TC_ERRINTLVL_OFF_gc /* Interrupt Disabled */
+			 | TC_OVFINTLVL_MED_gc; /* Interrupt Enabled */
 
 	TCC0.CCA = 0x7c /* Compare or Capture A: 0x7c */;
 
@@ -75,7 +75,7 @@ int8_t TIMER_0_init()
 
 	// TCC0.CNT = 0x0; /* Count: 0x0 */
 
-	// TCC0.PER = 0xffff; /* Period: 0xffff */
+	TCC0.PER = 0x7fff; /* Period: 0xffff */
 
 	TCC0.CTRLA = TC_CLKSEL_DIV64_gc; /* System Clock / 64 */
 

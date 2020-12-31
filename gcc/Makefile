@@ -75,7 +75,7 @@ DEPS_AS_ARGS +=  \
 "atmel_start.d"
 
 MAKEFILE_DIR := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
-OUTPUT_FILE_NAME :=AtmelStart
+OUTPUT_FILE_NAME :=firmware
 QUOTE := "
 OUTPUT_FILE_PATH +=$(OUTPUT_FILE_NAME).elf
 OUTPUT_FILE_PATH_AS_ARGS +=$(OUTPUT_FILE_NAME).elf

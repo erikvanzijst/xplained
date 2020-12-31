@@ -27,7 +27,7 @@ int main(void)
 	sei();
 	/* Replace with your application code */
 	while (1) {
-		LED0_toggle_level();
+		// LED0_toggle_level();
 		_delay_ms(250);
 	}
 }
