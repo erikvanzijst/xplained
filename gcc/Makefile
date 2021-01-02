@@ -167,7 +167,7 @@ $(SUB_DIRS):
 	$(MK_DIR) "$@"
 
 dfu: $(SUB_DIRS) $(OUTPUT_FILE_PATH) erase
-	@echo Writing flash...
+	@echo Writing flash using DFU bootloader...
 	dfu-programmer atxmega256a3bu flash --force $(OUTPUT_FILE_NAME).hex
 
 erase:

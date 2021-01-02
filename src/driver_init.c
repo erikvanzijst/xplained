@@ -185,6 +185,7 @@ void system_init()
 	    false);
 
 	PORTC_set_pin_dir(7, PORT_DIR_OUT);
+	PORTE_set_pin_dir(4, PORT_DIR_OUT);
 
 	TIMER_0_initialization();
 

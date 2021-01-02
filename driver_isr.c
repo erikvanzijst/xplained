@@ -36,9 +36,30 @@
 #include <driver_init.h>
 #include <compiler.h>
 
+// Display driver
+#define DIM 16
+#define width DIM * DIM
+volatile uint16_t screen[DIM];
+volatile uint8_t row = 0;
+
 ISR(TCC0_OVF_vect)
 {
    LED1_toggle_level();
+
+   RSDI_set_level(row != 0);
+   RCLK_set_level(true);
+   RCLK_set_level(false);
+
+   for (uint16_t col = 1; col; col <<= 1) {
+      CSDI_set_level(screen[row] & col);
+
+      CCLK_set_level(true);
+      CCLK_set_level(false);
+  }
+
+  LE_set_level(true);
+  LE_set_level(false);
+  row = (row + 1) % DIM;
 }
 
 ISR(TCC0_CCA_vect)
