@@ -226,6 +226,43 @@ drivers:
     variant: null
     clocks:
       domain_group: null
+  USART_0:
+    user_label: USART_0
+    definition: Atmel:XMEGA_A_B_C_Drivers:1.0.0::ATxmega256A3BU-AU::USARTE0::driver_config_definition::Async.Polled.Mode::Drivers:USART:Basic
+    functionality: USART
+    api: Drivers:USART:Basic
+    configuration:
+      baud_rate: 9600
+      printf_support: true
+      usart_ctrlb_clk2x: false
+      usart_ctrlb_mpcm: false
+      usart_ctrlb_rxen: true
+      usart_ctrlb_txen: true
+      usart_ctrlc_chsize: 'Character size: 8 bit'
+      usart_ctrlc_cmode: Async Polled Mode
+      usart_ctrlc_pmode: No Parity
+      usart_ctrlc_sbmode: 1 stop bit
+      usart_ctrlc_ucpha: Sample DATA on Falling edge of XCK
+      usart_ctrlc_udord: Send MSB of DATA First
+    optional_signals: []
+    variant:
+      specification: CMODE=0
+      required_signals:
+      - name: USARTE0/RXD
+        pad: PE2
+        label: RXD
+      - name: USARTE0/TXD
+        pad: PE3
+        label: TXD
+    clocks:
+      domain_group:
+        nodes:
+        - name: USART
+          input: CLK CPU/PER
+          external: false
+          external_frequency: 0
+        configuration:
+          usart_clock_source: CLK CPU/PER
 pads:
   RCLK:
     name: PC0
@@ -262,6 +299,18 @@ pads:
     definition: Atmel:XMEGA_A_B_C_Drivers:1.0.0::ATxmega256A3BU-AU::pad::PC5
     mode: Digital output
     user_label: LE
+    configuration: null
+  PE2:
+    name: PE2
+    definition: Atmel:XMEGA_A_B_C_Drivers:1.0.0::ATxmega256A3BU-AU::pad::PE2
+    mode: Digital input
+    user_label: PE2
+    configuration: null
+  PE3:
+    name: PE3
+    definition: Atmel:XMEGA_A_B_C_Drivers:1.0.0::ATxmega256A3BU-AU::pad::PE3
+    mode: Digital output
+    user_label: PE3
     configuration: null
   LED0:
     name: PR0
