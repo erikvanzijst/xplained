@@ -121,7 +121,7 @@ $(OUTPUT_FILE_PATH): $(OBJS)
 %.o: %.c
 	@echo Building file: $<
 	@echo xc8 C Compiler
-	$(QUOTE)xc8-cc$(QUOTE) -x c -DF_CPU=2000000 -DDEBUG -Os -ffunction-sections -g3 -Wall -c -std=gnu99 \
+	$(QUOTE)xc8-cc$(QUOTE) -x c -DF_CPU=32000000 -DDEBUG -Os -ffunction-sections -g3 -Wall -c -std=gnu99 \
 -mcpu=atxmega256a3bu \
     -D__xmega256A3BU__ \
 -I"../config" -I"../examples/include" -I"../include" -I"../utils" -I"../utils/assembler" -I"../"  \
@@ -132,7 +132,7 @@ $(OUTPUT_FILE_PATH): $(OBJS)
 %.o: %.s
 	@echo Building file: $<
 	@echo AVR/xc8 Assembler
-	$(QUOTE)xc8-cc$(QUOTE) -x assembler-with-cpp -DF_CPU=2000000 -DDEBUG -Os -ffunction-sections -g3 -Wall -c -std=gnu99 \
+	$(QUOTE)xc8-cc$(QUOTE) -x assembler-with-cpp -DF_CPU=32000000 -DDEBUG -Os -ffunction-sections -g3 -Wall -c -std=gnu99 \
 -mcpu=atxmega256a3bu \
     -D__xmega256A3BU__ \
 -I"../config" -I"../examples/include" -I"../include" -I"../utils" -I"../utils/assembler" -I"../"  \
@@ -143,7 +143,7 @@ $(OUTPUT_FILE_PATH): $(OBJS)
 %.o: %.S
 	@echo Building file: $<
 	@echo XC8 Preprocessing Assembler
-	$(QUOTE)xc8-cc$(QUOTE) -x assembler-with-cpp -DF_CPU=2000000 -DDEBUG -Os -ffunction-sections -g3 -Wall -c -std=gnu99 \
+	$(QUOTE)xc8-cc$(QUOTE) -x assembler-with-cpp -DF_CPU=32000000 -DDEBUG -Os -ffunction-sections -g3 -Wall -c -std=gnu99 \
 -mcpu=atxmega256a3bu \
     -D__xmega256A3BU__ \
 -I"../config" -I"../examples/include" -I"../include" -I"../utils" -I"../utils/assembler" -I"../"  \

@@ -75,9 +75,9 @@ int8_t TIMER_0_init()
 
 	// TCC0.CNT = 0x0; /* Count: 0x0 */
 
-	TCC0.PER = 0x7fff; /* Period: 0xffff */
+	TCC0.PER = 15625; /* Period: 2Hz */
 
-	TCC0.CTRLA = TC_CLKSEL_DIV64_gc; /* System Clock / 64 */
+	TCC0.CTRLA = TC_CLKSEL_DIV1024_gc; /* System Clock / 1024 */
 
 	return 0;
 }

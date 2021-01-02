@@ -184,6 +184,8 @@ void system_init()
 	    // <true"> High
 	    false);
 
+	PORTC_set_pin_dir(7, PORT_DIR_OUT);
+
 	TIMER_0_initialization();
 
 	OSC_init();

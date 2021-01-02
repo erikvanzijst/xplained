@@ -73,7 +73,7 @@ drivers:
       $input_id: 2MHz Internal Oscillator
       RESERVED_InputFreq: 2000000
       RESERVED_InputFreq_id: 2MHz Internal Oscillator
-      _$freq_output_External Crystal Oscillator 0.4-16MHz: '400000'
+      _$freq_output_External Crystal Oscillator 0.4-16MHz: 400000
       _$freq_output_PLL: 2000000
       dfll2m_calib_a: 0
       dfll2m_calib_b: 0
@@ -123,19 +123,19 @@ drivers:
       $input_id: PLL
       RESERVED_InputFreq: 2000000
       RESERVED_InputFreq_id: PLL
-      _$freq_output_CLK CPU/PER: 2000000
-      _$freq_output_CLK PER2: 2000000
-      _$freq_output_CLK PER4: 2000000
+      _$freq_output_CLK CPU/PER: 32000000
+      _$freq_output_CLK PER2: 32000000
+      _$freq_output_CLK PER4: 32000000
       _$freq_output_CLK USB: 2000000
-      _$freq_output_CPU: 2000000
-      _$freq_output_NVM: 2000000
-      _$freq_output_RAM: 2000000
+      _$freq_output_CPU: 32000000
+      _$freq_output_NVM: 32000000
+      _$freq_output_RAM: 32000000
       _$freq_output_RTC source: 1024
       clk_cpu_clock_source: CLK PER2
       clk_lock_lock: false
       clk_psctrl_psadiv: Divide by 1
       clk_psctrl_psbcdiv: Divide B by 1 and C by 1
-      clk_sys_source_oscillator: 2MHz Internal Oscillator
+      clk_sys_source_oscillator: 32MHz Internal Oscillator
       clk_usb_clock_prescaler: 0
       clk_usb_source_oscillator: PLL
       cpu_clock_prescaler: 0
@@ -326,19 +326,19 @@ pads:
     configuration: null
 toolchain_options:
 - definition:
-    identifier: Atmel:XMEGA_A_B_C_Drivers:1.0.0::ATxmega256A3BU-AU::environment_definition::All:Microchip.Studio.xc8:7.0.0
-  configuration:
-    compiler_config:
-      xc8_compiler_miscellaneous_OtherFlags: -std=gnu99
-    linker_config:
-      xc8_linker_miscellaneous_LinkerFlags: ''
-- definition:
     identifier: Atmel:XMEGA_A_B_C_Drivers:1.0.0::ATxmega256A3BU-AU::environment_definition::All:Microchip.Studio.gcc:7.0.0
   configuration:
     compiler_config:
       avrgcc_compiler_miscellaneous_OtherFlags: -std=gnu99
     linker_config:
       avrgcc_linker_miscellaneous_LinkerFlags: ''
+- definition:
+    identifier: Atmel:XMEGA_A_B_C_Drivers:1.0.0::ATxmega256A3BU-AU::environment_definition::All:Microchip.Studio.xc8:7.0.0
+  configuration:
+    compiler_config:
+      xc8_compiler_miscellaneous_OtherFlags: -std=gnu99
+    linker_config:
+      xc8_linker_miscellaneous_LinkerFlags: ''
 - definition:
     identifier: Atmel:XMEGA_A_B_C_Drivers:1.0.0::ATxmega256A3BU-AU::environment_definition::All:Atmel.Studio:7.0.0
   configuration:

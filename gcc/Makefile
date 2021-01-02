@@ -126,7 +126,7 @@ $(OUTPUT_FILE_PATH): $(OBJS)
 %.o: %.c
 	@echo Building file: $<
 	@echo AVR/GNU C Compiler
-	$(QUOTE)avr-gcc$(QUOTE) -x c -DF_CPU=2000000 -DDEBUG -Os -ffunction-sections -g3 -Wa,-mgcc-isr -c -std=gnu99 \
+	$(QUOTE)avr-gcc$(QUOTE) -x c -DF_CPU=32000000 -DDEBUG -Os -ffunction-sections -g3 -Wa,-mgcc-isr -c -std=gnu99 \
 -mmcu=atxmega256a3bu -B "$(MAKEFILE_DIR)../gcc/dev/atxmega256a3bu" \
     -D__xmega256A3BU__ \
 -I"../config" -I"../examples/include" -I"../include" -I"../utils" -I"../utils/assembler" -I"../" -I"../include"  \
@@ -137,7 +137,7 @@ $(OUTPUT_FILE_PATH): $(OBJS)
 %.o: %.s
 	@echo Building file: $<
 	@echo AVR/GNU Assembler
-	$(QUOTE)avr-gcc$(QUOTE) -x assembler-with-cpp -DF_CPU=2000000 -DDEBUG -Os -ffunction-sections -g3 -Wall -c -std=gnu99 \
+	$(QUOTE)avr-gcc$(QUOTE) -x assembler-with-cpp -DF_CPU=32000000 -DDEBUG -Os -ffunction-sections -g3 -Wall -c -std=gnu99 \
 -mmcu=atxmega256a3bu -B "$(MAKEFILE_DIR)../gcc/dev/atxmega256a3bu" \
     -D__xmega256A3BU__ \
 -I"../config" -I"../examples/include" -I"../include" -I"../utils" -I"../utils/assembler" -I"../" -I"../include"  \
@@ -148,7 +148,7 @@ $(OUTPUT_FILE_PATH): $(OBJS)
 %.o: %.S
 	@echo Building file: $<
 	@echo AVR/GNU Preprocessing Assembler
-	$(QUOTE)avr-gcc$(QUOTE) -x assembler-with-cpp -DF_CPU=2000000 -DDEBUG -Os -ffunction-sections -g3 -Wall -c -std=gnu99 \
+	$(QUOTE)avr-gcc$(QUOTE) -x assembler-with-cpp -DF_CPU=32000000 -DDEBUG -Os -ffunction-sections -g3 -Wall -c -std=gnu99 \
 -mmcu=atxmega256a3bu -B "$(MAKEFILE_DIR)../gcc/dev/atxmega256a3bu" \
     -D__xmega256A3BU__ \
 -I"../config" -I"../examples/include" -I"../include" -I"../utils" -I"../utils/assembler" -I"../" -I"../include"  \
