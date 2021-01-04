@@ -187,6 +187,9 @@ void system_init()
 	PORTC_set_pin_dir(7, PORT_DIR_OUT);
 	PORTE_set_pin_dir(4, PORT_DIR_OUT);
 
+	PORTCFG.VPCTRLA = PORTCFG_VP1MAP_PORTB_gc | PORTCFG_VP0MAP_PORTA_gc;	// assign the virtual ports A==>VP0, B==>VP1
+	PORTCFG.VPCTRLB = PORTCFG_VP3MAP_PORTD_gc | PORTCFG_VP2MAP_PORTC_gc;	// assign the virtual ports C==>VP2, D==>VP3
+
 	TIMER_0_initialization();
 
 	OSC_init();

@@ -42,24 +42,39 @@
 volatile uint16_t screen[DIM];
 volatile uint8_t row = 0;
 
+#define RCLK   (1 << 0)
+#define RSDI   (1 << 1)
+#define OE     (1 << 2)
+#define CSDI   (1 << 3)
+#define CCLK   (1 << 4)
+#define LE     (1 << 5)
+
+
 ISR(TCC0_OVF_vect)
 {
-   LED1_toggle_level();
+   if (row != 0) {
+      VPORT2.OUT |= RSDI;
+   } else {
+      VPORT2.OUT &= ~RSDI;
+   }
 
-   RSDI_set_level(row != 0);
-   RCLK_set_level(true);
-   RCLK_set_level(false);
+   VPORT2.OUT |= RCLK;
+   VPORT2.OUT &= ~RCLK;
 
    for (uint16_t col = 1; col; col <<= 1) {
-      CSDI_set_level(screen[row] & col);
+      if (screen[row] & col) {
+         VPORT2.OUT |= CSDI;
+      } else {
+         VPORT2.OUT &= ~CSDI;
+      }
 
-      CCLK_set_level(true);
-      CCLK_set_level(false);
+      VPORT2.OUT |= CCLK;
+      VPORT2.OUT &= ~CCLK;
   }
 
-  LE_set_level(true);
-  LE_set_level(false);
-  row = (row + 1) % DIM;
+   VPORT2.OUT |= LE;
+   VPORT2.OUT &= ~LE;
+   row = (row + 1) % DIM;
 }
 
 ISR(TCC0_CCA_vect)
