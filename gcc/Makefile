@@ -48,7 +48,8 @@ atmel_start.o \
 src/clk.o \
 src/usart_basic.o \
 src/driver_init.o \
-src/protected_io.o
+src/protected_io.o \
+src/sound.o
 
 OBJS_AS_ARGS +=  \
 "main.o" \
@@ -62,7 +63,8 @@ OBJS_AS_ARGS +=  \
 "src/clk.o" \
 "src/usart_basic.o" \
 "src/driver_init.o" \
-"src/protected_io.o"
+"src/protected_io.o" \
+"src/sound.o"
 
 # List the dependency files
 DEPS := $(OBJS:%.o=%.d)
@@ -79,7 +81,8 @@ DEPS_AS_ARGS +=  \
 "src/usart_basic.d" \
 "driver_isr.d" \
 "src/clk.d" \
-"atmel_start.d"
+"atmel_start.d" \
+"src/sound.d"
 
 MAKEFILE_DIR := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 OUTPUT_FILE_NAME :=firmware

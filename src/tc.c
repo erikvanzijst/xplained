@@ -79,5 +79,22 @@ int8_t TIMER_0_init()
 
 	TCC0.CTRLA = TC_CLKSEL_DIV64_gc; /* System Clock / 1024 */
 
+
+	// Tone generator:
+	TCE0.CTRLA = TC_CLKSEL_OFF_gc; /* System Clock / 64 */
+	TCE0.CTRLB = 0 << TC0_CCDEN_bp      /* Compare or Capture D Enable: disabled */
+	             | 0 << TC0_CCCEN_bp    /* Compare or Capture C Enable: disabled */
+	             | 0 << TC0_CCBEN_bp    /* Compare or Capture B Enable: disabled */
+	             | 0 << TC0_CCAEN_bp    /* Compare or Capture A Enable: enabled */
+	             | TC_WGMODE_NORMAL_gc; /* Normal Mode */
+	TCE0.INTCTRLA = TC_ERRINTLVL_OFF_gc /* Interrupt Disabled */
+			 		| TC_OVFINTLVL_MED_gc; /* Interrupt Enabled */
+	TCE0.INTCTRLB = TC_CCDINTLVL_OFF_gc   /* Interrupt Disabled */
+	                | TC_CCCINTLVL_OFF_gc /* Interrupt Disabled */
+	                | TC_CCBINTLVL_OFF_gc /* Interrupt Disabled */
+	                | TC_CCAINTLVL_OFF_gc /* Medium Level */;
+	TCE0.PER = 40000;
+	// TCE0.CCA = 50000;					/* Compare or Capture A: 50000 */
+
 	return 0;
 }

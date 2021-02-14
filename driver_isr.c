@@ -35,6 +35,7 @@
 
 #include <driver_init.h>
 #include <compiler.h>
+#include "sound.h"
 
 // Display driver
 #define DIM 16
@@ -79,6 +80,16 @@ ISR(TCC0_OVF_vect)
 
 ISR(TCC0_CCA_vect)
 {
-	/* Insert your CCA Compare Interrupt handling code here */
+       /* Insert your CCA Compare Interrupt handling code here */
    // LED0_toggle_level();
 }
+
+ISR(TCE0_OVF_vect)
+{
+   tone_isr();
+}
+
+// ISR(TCE0_CCA_vect)
+// {
+//    // LED1_toggle_level();
+// }
